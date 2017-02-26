@@ -1,6 +1,7 @@
 <?php 
 	$args = array(
 		'post_type' => 'post',
+		'post_per_page' => '6',
 		'category__not_in' => 3
 	);
 	$the_query = new WP_Query($args);

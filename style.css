@@ -1588,7 +1588,7 @@ button[type=submit],
   background: none;
 }
 .top-menu {
-  background: #52911f;
+  background: #94c347;
   height: 50px;
 } 
 .top-menu .col-sm-12,
@@ -1629,6 +1629,9 @@ h4.intro-text {
   font-size: 22px;
   text-align: center;
   margin-bottom: 15px;
+  color: #3a3a3b;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #94c347;
 }
 .list-info {
   padding-left: 10px;
@@ -1664,7 +1667,7 @@ h4.intro-text {
 }
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
   width: 100%;
-  background-color: #52911f;
+  background-color: #94c347;
 }
 .list-group-item {
   border: 0;
@@ -1677,4 +1680,7 @@ h4.intro-text {
 }
 .flex-caption h2 {
   display: none;
+}
+.top-menu ul.dropdown-menu li, .top-menu ul.dropdown-menu li a {
+  width: auto!important;
 }

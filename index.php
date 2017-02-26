@@ -37,6 +37,13 @@ get_header(); ?>
 						
 					</div>
 				</div>
+
+				<div class="row">
+					<h4 class="intro-text"><?php _e('Sản phẩm'); ?></h4>
+					<div class="col-sm-12 col-md-12">
+						<?php include('inc/products.php'); ?>
+					</div>
+				</div>
 			</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
