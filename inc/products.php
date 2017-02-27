@@ -13,15 +13,18 @@ if ( $the_query->have_posts() ) : $i = 0; ?>
 	<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 		<?php if( $i%3 == 0 || $i== 0) {  echo '<div class="row">'; } ?>
 		<?php   
-			$img_news = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'full');
+			$img_news = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'img_sanpham_list');
             $img_news_src = $img_news[0];
         ?>
-		<div class="col-sm-4 col-md-4">
-			<?php if(has_post_thumbnail()) { ?>
-				<img src="<?php echo $img_news_src;  ?>">
-			<?php } else { ?>
-				<img src="http://nongsannhietdoi.com/wp-content/uploads/2015/11/mostly-veggies_2558160.jpg">
-			<?php } ?>
+		<div class="product col-sm-4 col-md-4">
+			<a href="<?php echo get_bloginfo('siteurl'); ?>">
+				<?php if(has_post_thumbnail()) { ?>
+					<img src="<?php echo $img_news_src;  ?>">
+				<?php } else { ?>
+					<img src="http://nongsannhietdoi.com/wp-content/uploads/2017/02/img-xoai.png">
+				<?php } ?>
+				<h4><?php echo get_the_title(); ?></h4>
+			</a>
 		</div>
 		<?php if( ($i+1)%3 == 0 && $i!=0) {  echo '</div>'; } ?>
 	<?php $i++; endwhile; ?>

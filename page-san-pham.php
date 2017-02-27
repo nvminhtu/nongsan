@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Tin tức
+ * Template Name: Sản phẩm
  *
  * This is the template that displays full width page without sidebar
  *
@@ -9,7 +9,7 @@
 
 get_header(); ?>
 <?php get_sidebar(); ?>
-<div class="main-content-inner col-sm-12 col-md-12">
+<div class="main-content-inner col-sm-12 col-md-8">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
@@ -17,8 +17,7 @@ get_header(); ?>
 
     <?php 
       $args = array(
-        'post_type' => 'post',
-        'category__not_in' => 3
+        'post_type' => 'san-pham'
       );
       $the_query = new WP_Query($args);
       $count = $the_query->post_count;

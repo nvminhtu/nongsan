@@ -1254,7 +1254,7 @@ p.logged-in-as {
   text-align: right;
 }
 #colophon {
-  background-color: #52911f;
+  background-color: #94c347;
   padding: 10px 0;
   border-top: 2px solid #f7c513;
 }
@@ -1683,4 +1683,7 @@ h4.intro-text {
 }
 .top-menu ul.dropdown-menu li, .top-menu ul.dropdown-menu li a {
   width: auto!important;
+}
+.product h4 {
+  text-align: center;
 }
