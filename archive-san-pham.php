@@ -14,6 +14,23 @@ get_header(); ?>
 			<article <?php post_class(); ?>>
 				<div class="blog-item-wrap">
 					<div class="post-inner-content">
+						<div class="row">
+							<div class="product col-sm-12 col-md-12">
+								<h4>Danh mục sản phẩm</h4>
+								<?php 
+								$args = array( 'orderby' => 'menu-order', 'order' => 'DESC', 'hide_empty' => true);
+									$terms = get_terms("danh-muc",$args);
+									echo '<ul class="danh-muc">';
+									$count = count($terms);
+									 if ( $count > 0 ){
+										foreach ( $terms as $term ) {
+											echo '<li>'.$term->name.'</li>';
+										}
+									}
+									echo '</ul>';
+								?>
+							</div>
+						</div>
 						<?php
 							global $wp_rewrite;
 							global $paged;
@@ -50,7 +67,7 @@ get_header(); ?>
 								
 								<?php wp_reset_postdata(); ?>
 								<!-- show pagination here -->
-								<div class="row navigation"><?php wp_pagenavi(); ?></div>
+								<div class="row navigation"><?php // wp_pagenavi(); ?></div>
 							<?php else : ?>
 								<!-- show 404 error here -->
 							<?php endif; ?>
