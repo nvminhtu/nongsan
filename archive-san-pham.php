@@ -39,7 +39,7 @@ get_header(); ?>
 							$posts_per_page = get_option("posts_per_page"); 
 							$query = new WP_Query( 
 								array( 'post_type' => 'san-pham',
-        							 'posts_per_page'=> $posts_per_page,
+        							 'posts_per_page'=> -1,
 											 'paged' => $paged 
 										) );
 							$num_posts = $query->post_count;
