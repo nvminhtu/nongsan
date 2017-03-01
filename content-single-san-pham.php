@@ -13,7 +13,7 @@
 
 		<div class="entry-content">
 			<?php the_content(); ?>
-			<button class="hotline-tag btn btn-danger btn-lg">Hotline: 0913 831817 (Mr. Quất) , 0902 330077 (Mr. Phương)</button>
+			<!-- <button class="hotline-tag btn btn-danger btn-lg">Hotline: 0913 831817 (Mr. Quất) , 0902 330077 (Mr. Phương)</button> -->
 			<?php
 				wp_link_pages( array(
 					'before'            => '<div class="page-links">'.esc_html__( 'Pages:', 'sparkling' ),

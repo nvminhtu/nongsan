@@ -8,9 +8,10 @@
 	 if ( $count > 0 ){
 		foreach ( $terms as $term ) {
 			$term->slug;
+			$term_link = get_term_link( $term );
 ?>
 	<div class="row">
-		<h4 class="intro-text"><?php echo $term->name; ?><span><a href="#">Xem thêm</a></span></h4>
+		<h4 class="intro-text"><?php echo $term->name; ?><span><a href="<?php echo $term_link; ?>">Xem thêm</a></span></h4>
 		<div class="col-sm-12 col-md-12">
 <?php
 		global $wp_rewrite;
@@ -32,7 +33,7 @@
 		            $img_news_src = $img_news[0];
 		        ?>
 				<div class="product col-sm-4 col-md-4">
-					<a href="<?php echo get_bloginfo('siteurl'); ?>">
+					<a href="<?php echo get_permalink($post->ID); ?>">
 						<?php if(has_post_thumbnail()) { ?>
 							<img src="<?php echo $img_news_src;  ?>">
 						<?php } else { ?>

@@ -1695,8 +1695,11 @@ h4.intro-text span {
   font-size: 60%;
 }
 .danh-muc li {
-   display: inline-block;
-   background: url('img/bg-danh-muc.png') left top no-repeat;
-   color: #ffffff;
-   margin: 0 10px;
-   padding: 20px 30px;
+  display: inline-block;
+  background: url('img/bg-danh-muc.png') left top no-repeat;
+  color: #d9e8e7;
+  margin: 0 10px;
+  padding: 14px 19px;
+  font-size: 16px;
+  font-weight: bold;
+}
