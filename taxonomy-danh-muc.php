@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying Taxonomy page.
+ * The template for displaying Archive pages.
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -12,14 +12,31 @@ get_header(); ?>
 	<div id="primary" class="content-area grid-area">
 		<main id="main" class="site-main" role="main">
 			<article <?php post_class(); ?>>
+				<?php 
+					$term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );
+					$danh_muc_name = $term->name;
+					$danh_muc_slug = $term->slug;
+				?>
 				<div class="blog-item-wrap">
-					<?php 
-						$term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );
-						$danh_muc_name = $term->name;
-						$danh_muc_slug = $term->slug;
-					?>
-					<h3><?php echo $danh_muc_name; ?></h3>
 					<div class="post-inner-content">
+						<div class="row">
+							<div class="product col-sm-12 col-md-12">
+								<h4>Danh mục sản phẩm</h4>
+								<?php 
+								$args = array( 'orderby' => 'menu-order', 'order' => 'DESC', 'hide_empty' => true);
+									$terms = get_terms("danh-muc",$args);
+									echo '<ul class="danh-muc">';
+									$count = count($terms);
+									 if ( $count > 0 ){
+										foreach ( $terms as $term ) {
+											echo '<li><a href="'.get_term_link($term).'">'.$term->name.'</a></li>';
+										}
+									}
+									echo '</ul>';
+								?>
+							</div>
+						</div>
+						<h4><?php echo $danh_muc_name; ?></h4>
 						<?php
 							global $wp_rewrite;
 							global $paged;
@@ -27,20 +44,36 @@ get_header(); ?>
 							if ( get_query_var('page') ) $paged = get_query_var('page');
 							$posts_per_page = get_option("posts_per_page"); 
 							$query = new WP_Query( 
-								array( 'post_type' => 'san-pham',
+									array( 'post_type' => 'san-pham',
 											 'danh-muc'  => $danh_muc_slug,
-        							 'posts_per_page'=> $posts_per_page,
 											 'paged' => $paged 
 										) );
 							$num_posts = $query->post_count;
-							if ( $query->have_posts() ) : $order = 0; ?>
+							$i = 0;
+							if ( $query->have_posts() ) : ?>
 								<?php while ( $query->have_posts() ) : $query->the_post(); ?>	
-									<?php if($order%3==0) { ?><div class="row"><?php } ?>
-									<?php get_template_part( 'content', 'san-pham' );  ?>
-									<?php if(($order+1)%3==0 || $order==($num_posts-1)) { ?></div><?php } $order++; ?>
-								<?php endwhile; ?><?php wp_reset_postdata(); ?>
+								<!-- the loop -->
+								<?php if( $i % 3 == 0 || $i== 0) {  echo '<div class="row">'; } ?>
+								<?php   
+									$img_news = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'img_sanpham_list');
+								    $img_news_src = $img_news[0];
+								?>
+								<div class="product col-sm-4 col-md-4">
+									<a href="<?php echo get_permalink($post->ID); ?>">
+										<?php if(has_post_thumbnail()) { ?>
+											<img src="<?php echo $img_news_src;  ?>">
+										<?php } else { ?>
+											<img src="http://nongsannhietdoi.com/wp-content/uploads/2017/02/img-xoai.png">
+										<?php } ?>
+										<h4><?php echo get_the_title(); ?></h4>
+									</a>
+								</div>
+								<?php if( ($i+1)%3 == 0 && $i!=0) {  echo '</div>'; } ?>
+								<?php $i++; endwhile; ?>
+								
+								<?php wp_reset_postdata(); ?>
 								<!-- show pagination here -->
-								<div class="row navigation"><?php wp_pagenavi(); ?></div>
+								<div class="row navigation"><?php // wp_pagenavi(); ?></div>
 							<?php else : ?>
 								<!-- show 404 error here -->
 							<?php endif; ?>

@@ -24,7 +24,7 @@ get_header(); ?>
 									$count = count($terms);
 									 if ( $count > 0 ){
 										foreach ( $terms as $term ) {
-											echo '<li>'.$term->name.'</li>';
+											echo '<li><a href="'.get_term_link($term).'">'.$term->name.'</a></li>';
 										}
 									}
 									echo '</ul>';
@@ -53,7 +53,7 @@ get_header(); ?>
 								    $img_news_src = $img_news[0];
 								?>
 								<div class="product col-sm-4 col-md-4">
-									<a href="<?php echo get_bloginfo('siteurl'); ?>">
+									<a href="<?php echo get_permalink($post->ID); ?>">
 										<?php if(has_post_thumbnail()) { ?>
 											<img src="<?php echo $img_news_src;  ?>">
 										<?php } else { ?>

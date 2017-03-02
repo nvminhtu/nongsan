@@ -33,10 +33,10 @@ if ( $the_query->have_posts() ) : $i = 0; ?>
   ?>
     
     <div class="news-item row">
-      <div class="col-sm-12 col-md-6 featured">
+      <div class="col-sm-12 col-md-4 featured">
         <a href="<?php the_permalink(); ?>"><img src="<?php echo $img_archive_news[0]; ?>"></a>
       </div>
-      <div class="col-sm-12 col-md-6">
+      <div class="col-sm-12 col-md-8">
         <a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
         <p><?php echo wp_trim_words( get_the_content(), 40, '...' ); ?></p>
       </div>
