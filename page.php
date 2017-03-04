@@ -13,6 +13,7 @@
 get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
+<?php get_sidebar(); ?>
 <div class="main-content-inner col-sm-12 col-md-12">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">

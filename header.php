@@ -72,7 +72,7 @@
 
 		<div class="top-slider container">
 			<?php if(is_front_page() || is_home()) { ?>
-				<?php sparkling_featured_slider(); ?>
+				<?php //sparkling_featured_slider(); ?>
 			<?php } ?>
 			<?php sparkling_call_for_action(); ?>
 		</div>

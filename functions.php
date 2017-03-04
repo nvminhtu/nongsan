@@ -307,4 +307,3 @@ add_filter('widget_text', 'do_shortcode');
 add_image_size( 'img_archive_news', 365, 205, true );
 add_image_size( 'img_first_news', 270, 152, true );
 add_image_size( 'img_list_news', 79, 59, true );
-add_image_size( 'img_sanpham_list', 350, 260, true );

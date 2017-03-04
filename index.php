@@ -31,7 +31,7 @@ get_header(); ?>
 				<div class="row">
 					<div class="col-sm-12 col-md-6">
 						<h4>Tin tức</h4>
-						<?php include('inc/news.php'); ?>
+						<?php //include('inc/news.php'); ?>
 					</div>
 					<div class="col-sm-12 col-md-6 hotline">
 						
